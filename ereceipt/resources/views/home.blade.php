@@ -1,30 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- <div class="content ">
-        <div class="row">
-             <form class="middle" action="/insert" method="post">
-                 <table class="table ">
-                    
-                       <tr>
-                            {{ csrf_field() }}
-                            <td>Product name:</td>
-                            <td><input type"text" name="product_name"></td>
-                       </tr> 
-                       <tr>
-                            <td>Quantity:</td>
-                            <td><input type"text" name="product_name"></td>
-                       </tr> 
-                       <tr>
-                            <td>Price:</td>
-                            <td><input type"text" name="product_name"></td>
-                       </tr> 
-
-                 </table>
-                 <input type="submit" name="submit" value="Add item"><br>
-             </form>
-        --> 
-
 
 <!doctype>
 <html>
@@ -66,12 +42,14 @@
                 var n1 = parseFloat(document.getElementById('n1').value);
                 var n2 = parseFloat(document.getElementById('n2').value);
                 var n3 = parseFloat(document.getElementById('n3').value);
+                var n4 = parseFloat(document.getElementById('n4').value);
+                var n5 = parseFloat(document.getElementById('n5').value);
 
                 var oper = document.getElementById('operators').value;
                 
                 if(oper === '+')
                 {
-                    document.getElementById('result').value = n1+n2+n3;
+                    document.getElementById('result').value = n1+n2+n3+n4+n5;
                 }
                 
                 if(oper === '-')
@@ -101,10 +79,12 @@
  
 
  <!-- ....................calculation................................ -->     
-        <a href="javascript:genPDF()">Download PDF...</a> 
+       
+        
+       
 
         <div id='testDiv'>
-                <h5>Product</h5> <h5>Price</h5>
+                <h5>Product</h5> <h5 class="price_header">Price</h5>
                 <input type="text"/>
 
                 <input type="text" id="n1"/><br/><br/>
@@ -114,6 +94,12 @@
 
                 <input type="text"/>
                 <input type="text" id="n3"/><br/><br/>
+
+                <input type="text"/>
+                <input type="text" id="n4"/><br/><br/>
+
+                <input type="text"/>
+                <input type="text" id="n5"/><br/><br/>
                 
                 <select id="operators" class="hide">
                     <option value="+">+</option>
@@ -126,16 +112,26 @@
             <input type="text" id="result"/>
             
         </div> 
-        <button onclick="calc();">Calculate cost</button>
-        <form method="get" action="/home">
-             <button type="submit">Clear</button>
-        </form>
+ <!-- ....................end of jspdf................................ -->
+        <div class="button_section">
+            <button onclick="calc();">Calculate cost</button>
+            <button > <a href="javascript:genPDF()">Download PDF</a></button>
+            <form class="clear_button" method="get" action="/home">
+                 <button type="submit">Clear</button>
+            </form>
+        </div>
         
 
 <!-- ....................end of calculation................................ -->
 
-<!-- ....................end of jspdf................................ -->
 
+
+
+<!-- .......................... Mail body start............................ -->
+<div class="ereceipt_section">
+<iframe src="{{URL("/email")}}"height="390" width="400" style="border:none"></iframe>
+</div>
+<!-- ............................. Mail body end.............................-->
 
     </body>
 </html>

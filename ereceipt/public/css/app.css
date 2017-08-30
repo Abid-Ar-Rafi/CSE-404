@@ -13,8 +13,42 @@
   }
 
   #testDiv{
-  	border: 1px solid green;
-  	margin: 5%;
+  	
+  	margin: 15%;
   	padding: 1%;
+margin-top:43px;
   	float:none;
   }
+.ereceipt_section{
+	top: 94px;
+	right: 250px;
+	border: 2px solid;
+	border-color: gray;
+	border-style: none;
+	position: absolute;
+}
+.price_header{
+	position:absolute;
+	margin-left: 163px;
+	margin-top: -26px;
+	
+}
+
+}
+.download_button {
+	position: relative;
+	margin-top: 600px;
+	margin-left: 198px;
+	
+}
+.download_button a ::hover{
+	text-decoration: none;
+}
+.clear_button{
+	margin-top: -28px;
+	margin-left: 265px;
+}
+.button_section{
+	margin-left: 218px;
+	margin-top: -173px;
+}

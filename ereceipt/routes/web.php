@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::post('/insert', 'Controller@insert');
+
+Route::post('/send','mailController@send');
+Route::get('/email','mailController@email');
